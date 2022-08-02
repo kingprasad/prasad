@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+    .image{
+        width:200px;
+        float: right;
+        border-radius: 0rem 2rem;
+    
+        height: fit-content;
+        padding:30px;
+        
+        
+    }
+</style>
+</head>
+<body>
+    
+    <div class="container"><br/>
+
+        <form name="userForm">
+          <img class="image" src="https://media.istockphoto.com/photos/portrait-of-smiling-mixed-race-woman-looking-at-camera-picture-id1319763830?k=20&m=1319763830&s=612x612&w=0&h=ooguDiiKrPmsnN4MKQ7S1pIfddwAqXnqF7XW4MF6gM8=" alt="">
+        
+       
+        </form>
+
+        <h1 class="text-success text-center">Compleate Form Validation in JavaScript</h1>/
+
+        <div class="col-lg-8 m-auto d-block">
+        <form action="#" onsubmit="return-validation()" class="bg-light">
+                
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" name="user" class="form-control" id="user" autocomplete="off">
+                    <span id="username" class="text-danger font-weight-bold"></span>
+                </div>
+
+                <div class="form-group">
+                <label>Password:</label>
+                    <input type="text" name="pass" class="form-control" id="pass" autocapitalize="off">
+                    <span id="pass" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                    <label>confirm Password:</label>
+                    <input type="text" name="conpass" class="form-control" id="conpass" autocomplete="off">
+                    <span id="conpass" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number:</label>
+                    <input type="text" name="Mobile" class="form-control" id="Mobile Number" autocomplete="off">
+                    <span id="mobileNo" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" name="email" class="form-control" id="email" autocapitalize="off">
+                    <span id="email" class="text-danger font-weight-bold"></span>
+                </div>
+                <p>
+                    SELECT YOUR COURSE
+                    <select type="text" value="" name="Subject">
+                        <option>BTECH</option>
+                        <option>BBA</option>
+                        <option>BCA</option>
+                        <option>B.COM</option>
+                    
+                    </select>
+                </p>
+     
+                <br />
+                <br />
+                <p>
+                    Select  Your Language
+                    <select type="text" value="" name="Subject">
+                        <option>Telugu</option>
+                        <option>English</option>
+                        <option>Hindi</option>
+                        
+                    </select>
+                </p>
+     
+                <br />
+                <br />
+
+                <p>Comments: <textarea cols="100"
+                                name="Comment"> </textarea></p>
+
+     
+<p>
+    <br/>
+    <br/>
+    <p>
+        choose upload image
+        <select type="text" value="" name="Image">
+            <option>JPG</option>
+            
+            
+        </select>
+    </p>
+
+    <br />
+    <br />
+
+                <input type="submit" name="submit" value="submit" class="btn btn-success" autocomplete="off">
+
+        </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+          function validation() {
+
+            var user=document.getElementById('user').value;
+            var pass=document.getElementById('pass').value;
+            var confirmpass=document.getElementById('conpass').value;
+            var mobileNo=document.getElementById('mobileNo').value;
+            var email=document.getElementById('email').value;
+           
+
+            if(user == ""){
+                document.getElementById('username').innerHTML=" ** please fill the username field";
+                return false;
+            }
+            if((user.length<=2) || (user.length>15)) {
+                document.getElementById('username').innerHTML=" ** user length must be 2 and 15 only";
+                return false;
+            }
+            if(!ifNaN(user)){
+                document.getElementById('username').innerHTML=" ** only charecters are allowed";
+                return false;
+            }
+
+
+            if(pass == ""){
+                document.getElementById('password').innerHTML=" ** please fil the password field";
+                return false;
+        
+            if((pass.length<=5) || (pass.length>15)) {
+                document.getElementById('password').innerHTML=" ** password length must be 5 and 15 only";
+                return false;
+            }
+
+            if(pass!=conpass){
+                document.getElementById('password').innerHTML=" ** password not matching";
+                return false;
+            }
+
+            if(conpass == ""){
+                document.getElementById('conpass').innerHTML=" ** please fil the confirm password field";
+                return false;
+            }
+
+            if(mobileNo == ""){
+                document.getElementById('mobileNo').innerHTML=" ** please fil the mobileNo field";
+                return false;
+            }
+            if(isNaN(mobileNo)) {
+            document.getElementById('mobileNo').innerHTML=" ** user writes must be digits only not charecters";
+                return false;
+
+            }
+            if(mobileNumber.length!=10) {
+                document.getElementById('mobileNo').innerHTML=" ** user must write 10 digit mobile number";
+                return false;
+            }
+
+
+            if(email == ""){
+                document.getElementById('email').innerHTML=" ** please fil the email id field";
+                return false;
+            }
+            if(email.indexof('@') <=0) {
+                document.getElementById('email').innerHTML=" ** @ involved position";
+                return false;
+            }
+            if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.')) {
+                document.getElementById('email').innerHTML=" ** . involved position";
+                return false;
+            }
+          }
+        }
+    </script>
+</body>
+</html>
